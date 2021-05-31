@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 
 const Nav = () => {
   const { pathname } = useRouter();
-  console.log(pathname);
   const active = 'text-seaweed-light bg-gray-900';
+
   return (
     <aside className="md:h-screen sticky top-0">
       <div
