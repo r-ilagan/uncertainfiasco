@@ -28,7 +28,7 @@ const Nav = () => {
             <li>
               <Link href="/">
                 <a
-                  className={`block my-1 py-2 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
+                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
                     pathname === '/' ? active : ''
                   }`}
                 >
@@ -39,7 +39,7 @@ const Nav = () => {
             <li>
               <Link href="/about">
                 <a
-                  className={`block my-1 py-2 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
+                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
                     pathname === '/about' ? active : ''
                   }`}
                 >
@@ -50,7 +50,7 @@ const Nav = () => {
             <li>
               <Link href="/archives">
                 <a
-                  className={`block my-1 py-2 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
+                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
                     pathname === '/archives' ? active : ''
                   }`}
                 >
@@ -61,7 +61,7 @@ const Nav = () => {
             <li>
               <Link href="/contact">
                 <a
-                  className={`block my-1 py-2 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
+                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
                     pathname === '/contact' ? active : ''
                   }`}
                 >
