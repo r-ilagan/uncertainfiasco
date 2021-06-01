@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { parseISO, format } from 'date-fns';
 
-import { getAllPosts } from '../lib/data';
+import { getAllPosts, getUrlFromSlug } from '../lib/data';
 
 export default function Home({ posts }) {
   console.log(posts);
@@ -12,9 +12,6 @@ export default function Home({ posts }) {
         <title>Uncertain Fiasco</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>Uncertain Fiasco</h1>
-      </main>
       <div>
         {posts.map((post) => (
           <BlogListItem key={post.slug} {...post} />
@@ -26,7 +23,6 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const allPosts = getAllPosts();
-
   return {
     props: {
       posts: allPosts.map(({ data, content, slug }) => ({
@@ -39,11 +35,12 @@ export async function getStaticProps() {
   };
 }
 
-function BlogListItem({ slug, title, date, content }) {
+function BlogListItem({ slug, title, date, content, type }) {
+  const url = getUrlFromSlug(type, slug);
   return (
     <div>
       <div>
-        <Link href="">
+        <Link href={url}>
           <a>{title}</a>
         </Link>
       </div>
