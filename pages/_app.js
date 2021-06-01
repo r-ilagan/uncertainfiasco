@@ -22,7 +22,6 @@ function MyApp({ Component, pageProps }) {
       {/* content */}
       <div className="bg-repeat-y bg-left flex-1 pt-3 pr-10 pl-12">
         <header>
-          Content goes here
           <Component {...pageProps} />
         </header>
       </div>
