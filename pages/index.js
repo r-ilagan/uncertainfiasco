@@ -1,33 +1,53 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { parseISO, format } from 'date-fns';
 
-import { blogPosts } from '../lib/data';
+import { getAllPosts } from '../lib/data';
 
-export default function Home() {
+export default function Home({ posts }) {
+  console.log(posts);
   return (
     <div>
       <Head>
         <title>Uncertain Fiasco</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main>
         <h1>Uncertain Fiasco</h1>
       </main>
-
       <div>
-        {blogPosts.map((item) => (
-          <div key={item.slug}>
-            <div>
-              <Link href={`/blog/${item.slug}`}>
-                <a>{item.title}</a>
-              </Link>
-            </div>
-            <div>{item.date}</div>
-            <div>{item.content}</div>
-          </div>
+        {posts.map((post) => (
+          <BlogListItem key={post.slug} {...post} />
         ))}
       </div>
+    </div>
+  );
+}
+
+export async function getStaticProps() {
+  const allPosts = getAllPosts();
+
+  return {
+    props: {
+      posts: allPosts.map(({ data, content, slug }) => ({
+        ...data,
+        date: data.date.toISOString(),
+        content,
+        slug,
+      })),
+    },
+  };
+}
+
+function BlogListItem({ slug, title, date, content }) {
+  return (
+    <div>
+      <div>
+        <Link href="">
+          <a>{title}</a>
+        </Link>
+      </div>
+      <div>{format(parseISO(date), 'MMMM do, uuu')}</div>
     </div>
   );
 }
