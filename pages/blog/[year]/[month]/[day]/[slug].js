@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { blogPosts } from '../../lib/data';
+import { blogPosts } from '../../../../../lib/data';
+import { getPostBySlugAndYear } from '../../../../../lib/data';
 
 export default function BlogPage({ title, date, content }) {
   return (
@@ -17,9 +18,16 @@ export default function BlogPage({ title, date, content }) {
   );
 }
 
-export async function getStaticProps(context) {
-  console.log('hello', context);
-  const { params } = context;
+export async function getStaticProps({ params }) {
+  const { year, slug } = params;
+  const post = getPostBySlugAndYear(year, slug, [
+    'title',
+    'date',
+    'slug',
+    'author',
+    'content',
+  ]);
+  console.log(post);
   return {
     props: blogPosts.find((item) => item.slug === params.slug),
   };
@@ -27,9 +35,9 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   return {
-    paths: blogPosts.map((item) => ({
+    paths: blogPosts.map((post) => ({
       params: {
-        slug: item.slug,
+        slug: post.slug,
       },
     })),
     fallback: false,
