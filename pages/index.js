@@ -11,11 +11,11 @@ export default function Home({ posts }) {
         <title>Uncertain Fiasco</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
+      <article>
         {posts.map((post) => (
           <BlogListItem key={post.slug} {...post} />
         ))}
-      </div>
+      </article>
     </div>
   );
 }

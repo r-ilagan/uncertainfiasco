@@ -17,7 +17,9 @@ export default function BlogPage({ source, frontMatter }) {
       </Head>
 
       <main>
-        <MDXRemote {...source} />
+        <article className="prose prose-seaweed">
+          <MDXRemote {...source} />
+        </article>
       </main>
     </div>
   );
