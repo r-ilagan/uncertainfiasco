@@ -20,6 +20,15 @@ module.exports = {
           light: '#21B0C0',
         },
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              '&:hover': { color: '#177E89' },
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
