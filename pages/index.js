@@ -5,7 +5,6 @@ import { parseISO, format } from 'date-fns';
 import { getAllPosts, getUrlFromSlug } from '../lib/data';
 
 export default function Home({ posts }) {
-  console.log(posts);
   return (
     <div>
       <Head>
@@ -23,14 +22,21 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const allPosts = getAllPosts();
+  const posts = allPosts.map(({ data, content, slug }) => {
+    // hacky way of fixing date being parsed as a string
+    const date = new Date(data.date).toISOString();
+    const post = {
+      ...data,
+      date,
+      content,
+      slug,
+    };
+    return post;
+  });
+
   return {
     props: {
-      posts: allPosts.map(({ data, content, slug }) => ({
-        ...data,
-        date: data.date.toISOString(),
-        content,
-        slug,
-      })),
+      posts,
     },
   };
 }
