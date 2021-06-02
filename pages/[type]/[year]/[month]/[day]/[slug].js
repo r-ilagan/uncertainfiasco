@@ -8,17 +8,16 @@ import {
   getDateFromSlug,
 } from '../../../../../lib/data';
 
-export default function BlogPage({ title, date, content }) {
+export default function BlogPage({ source, frontMatter }) {
   return (
     <div>
       <Head>
-        <title>{title}</title>
+        {/* <title>{title}</title> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1>{title}</h1>
-        <p>{content}</p>
+        <MDXRemote {...source} />
       </main>
     </div>
   );
@@ -26,11 +25,17 @@ export default function BlogPage({ title, date, content }) {
 
 export async function getStaticProps({ params }) {
   const { year, month, day, slug } = params;
-  const allPosts = getAllPosts();
-  const currentPost = `${year}-${month}-${day}-${slug}`;
-  const post = allPosts.find((item) => item.slug === currentPost);
+  const postFileName = `${year}-${month}-${day}-${slug}`;
+  const { data, content } = getPostBySlug(year, postFileName);
+
+  data.date = data.date.toString();
+
+  const mdxSource = await serialize(content, {
+    scope: data,
+  });
+
   return {
-    props: {},
+    props: { source: mdxSource, frontMatter: data },
   };
 }
 
