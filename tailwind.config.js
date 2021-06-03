@@ -23,8 +23,17 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            color: theme('colors.gray.800'),
             a: {
-              '&:hover': { color: '#177E89' },
+              color: '#084C61',
+              '&:hover': { textDecoration: 'none' },
+            },
+            img: {
+              display: 'block',
+              margin: 'auto',
+            },
+            blockquote: {
+              borderLeftColor: theme('colors.gray.400'),
             },
           },
         },
