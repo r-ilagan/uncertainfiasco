@@ -8,6 +8,8 @@ import {
   getDateFromSlug,
 } from '../../../../../lib/data';
 
+import Footer from '../../../../../components/footer';
+
 export default function BlogPage({ source, frontMatter }) {
   return (
     <div>
@@ -17,8 +19,9 @@ export default function BlogPage({ source, frontMatter }) {
       </Head>
 
       <main>
-        <article className="prose prose-seaweed">
+        <article className="prose prose-lg">
           <MDXRemote {...source} />
+          <Footer />
         </article>
       </main>
     </div>
