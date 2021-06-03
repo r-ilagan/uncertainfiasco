@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Pencil from './pencil';
 
 const Nav = () => {
   const { pathname } = useRouter();
@@ -23,49 +24,61 @@ const Nav = () => {
         </div>
 
         {/* nav */}
-        <nav className="font-mono pr-10">
+        <nav className="font-mono font-medium pr-10 flex justify-center">
           <ul>
             <li>
               <Link href="/">
                 <a
-                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
-                    pathname === '/' ? active : ''
-                  }`}
+                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
                 >
-                  Home
+                  home
+                  {pathname === '/' ? (
+                    <Pencil className="h-7 w-7 ml-3 flex items-center transform rotate-45" />
+                  ) : (
+                    ''
+                  )}
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/about">
                 <a
-                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
-                    pathname === '/about' ? active : ''
-                  }`}
+                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
                 >
-                  About
+                  about
+                  {pathname === '/about' ? (
+                    <Pencil className="h-7 w-7 ml-3 flex items-center transform rotate-45" />
+                  ) : (
+                    ''
+                  )}
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/archives">
                 <a
-                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
-                    pathname === '/archives' ? active : ''
-                  }`}
+                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
                 >
-                  Archives
+                  archives
+                  {pathname === '/archives' ? (
+                    <Pencil className="h-7 w-7 ml-3 flex items-center transform rotate-45" />
+                  ) : (
+                    ''
+                  )}
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/contact">
                 <a
-                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg ${
-                    pathname === '/contact' ? active : ''
-                  }`}
+                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
                 >
-                  Contact
+                  contact
+                  {pathname === '/contact' ? (
+                    <Pencil className="h-7 w-7 ml-3 flex items-center transform rotate-45" />
+                  ) : (
+                    ''
+                  )}
                 </a>
               </Link>
             </li>
