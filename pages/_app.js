@@ -1,5 +1,5 @@
-import Nav from '../components/Nav';
-import MobileNav from '../components/MobileNav';
+import Nav from '../components/nav';
+import MobileNav from '../components/mobile-nav';
 
 import '../styles/globals.css';
 // make menu unscrollable on mobile
