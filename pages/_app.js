@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       ></div>
 
       {/* content */}
-      <div className="bg-repeat-y bg-left flex-1 pt-3 pr-10 pl-12">
+      <div className="bg-repeat-y bg-left flex-1 ml-11 pt-3 pr-10 pl-32 md:border-dashed md:border-l-2 border-black">
         <header>
           <Component {...pageProps} />
         </header>
