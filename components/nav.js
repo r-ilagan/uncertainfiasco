@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Pencil from './pencil';
+import Name from '../components/name';
 
 const Nav = () => {
   const { pathname } = useRouter();
@@ -21,6 +22,9 @@ const Nav = () => {
               </span>
             </a>
           </Link>
+          <div className="-mt-12 transform rotate-6">
+            <Name />
+          </div>
         </div>
 
         {/* nav */}
@@ -57,7 +61,7 @@ const Nav = () => {
             <li>
               <Link href="/archives">
                 <a
-                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
+                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
                 >
                   archives
                   {pathname === '/archives' ? (
@@ -71,14 +75,12 @@ const Nav = () => {
             <li>
               <Link href="/contact">
                 <a
-                  className={`block my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
+                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
                 >
                   contact
                   {pathname === '/contact' ? (
                     <Pencil className="h-7 w-7 ml-3 flex items-center transform rotate-45" />
-                  ) : (
-                    ''
-                  )}
+                  ) : null}
                 </a>
               </Link>
             </li>
