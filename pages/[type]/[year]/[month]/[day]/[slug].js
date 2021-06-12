@@ -1,6 +1,7 @@
+import { useMemo } from 'react';
 import Head from 'next/head';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
+import { bundleMDX } from 'mdx-bundler';
+import { getMDXComponent } from 'mdx-bundler/client';
 import {
   getPostBySlug,
   getAllPosts,
@@ -10,17 +11,18 @@ import {
 
 import Footer from '../../../../../components/footer';
 
-export default function BlogPage({ source, frontMatter }) {
+export default function ContentPage({ code, frontMatter }) {
+  const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <div>
       <Head>
-        {/* <title>{title}</title> */}
+        <title>{frontMatter.title} | Uncertain Fiasco</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <article className="prose prose-lg">
-          <MDXRemote {...source} />
+          <Component />
           <Footer />
         </article>
       </main>
@@ -32,15 +34,11 @@ export async function getStaticProps({ params }) {
   const { year, month, day, slug } = params;
   const postFileName = `${year}-${month}-${day}-${slug}`;
   const { data, content } = getPostBySlug(year, postFileName);
-
   data.date = data.date.toString();
-
-  const mdxSource = await serialize(content, {
-    scope: data,
-  });
+  const { code } = await bundleMDX(content);
 
   return {
-    props: { source: mdxSource, frontMatter: data },
+    props: { code, frontMatter: data },
   };
 }
 
