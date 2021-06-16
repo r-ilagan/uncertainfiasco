@@ -1,14 +1,14 @@
 import Head from 'next/head';
 
-export default function About() {
+export default function Contact() {
   return (
     <div>
       <Head>
-        <title>About | Uncertain Fiasco</title>
+        <title>Contact | Uncertain Fiasco</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>About</h1>
+        <h1>Contact</h1>
       </main>
     </div>
   );

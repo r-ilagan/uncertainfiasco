@@ -59,12 +59,12 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link href="/archives">
+              <Link href="/writing">
                 <a
                   className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
                 >
-                  archives
-                  {pathname === '/archives' ? (
+                  writing
+                  {pathname === '/writing' ? (
                     <Pencil className="h-7 w-7 ml-3 flex items-center transform rotate-45" />
                   ) : (
                     ''
