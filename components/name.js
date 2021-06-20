@@ -5,7 +5,7 @@ function Name() {
     <>
       <Image
         src="/tape.png"
-        alt="Picture of the author"
+        alt="Name of the author"
         width={300}
         height={100}
       />
