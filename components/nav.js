@@ -10,8 +10,11 @@ const Nav = () => {
   return (
     <aside className="md:h-screen sticky top-0">
       <div
-        className="h-screen bg-seaweed text-white w-72 lg:w-80 space-y-6 py-24 pl-2 absolute inset-y-0 left-0 transform -translate-x-full
+        className="h-screen bg-contain bg-repeat-y text-white w-72 lg:w-80 space-y-6 py-24 pl-2 absolute inset-y-0 left-0 transform -translate-x-full
       md:relative md:translate-x-0 transition duration-200 ease-in-out"
+        style={{
+          backgroundImage: 'url(/cardboard.png)',
+        }}
       >
         {/* logo */}
         <div>
