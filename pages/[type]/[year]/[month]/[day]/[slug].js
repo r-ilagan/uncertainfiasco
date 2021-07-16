@@ -47,7 +47,7 @@ export async function getStaticPaths() {
   return {
     paths: allPosts.map((post) => ({
       params: {
-        slug: getTitleFromSlug(post.slug),
+        slug: post.data.metaTitle,
         type: post.data.type,
         ...getDateFromSlug(post.slug),
       },
