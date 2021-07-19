@@ -36,7 +36,7 @@ const Nav = () => {
             <li>
               <Link href="/">
                 <a
-                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
+                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:text-gray-800 lg:text-lg`}
                 >
                   home
                   {pathname === '/' ? (
@@ -50,7 +50,7 @@ const Nav = () => {
             <li>
               <Link href="/about">
                 <a
-                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
+                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:text-gray-800 lg:text-lg`}
                 >
                   about
                   {pathname === '/about' ? (
@@ -64,7 +64,7 @@ const Nav = () => {
             <li>
               <Link href="/writing">
                 <a
-                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
+                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:text-gray-800 lg:text-lg`}
                 >
                   writing
                   {pathname === '/writing' ? (
@@ -78,7 +78,7 @@ const Nav = () => {
             <li>
               <Link href="/contact">
                 <a
-                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:bg-seaweed-light hover:text-gray-800 lg:text-lg`}
+                  className={`flex justify-center my-2 py-1 px-4 rounded transition duration-200 hover:text-gray-800 lg:text-lg`}
                 >
                   contact
                   {pathname === '/contact' ? (
