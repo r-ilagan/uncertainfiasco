@@ -41,8 +41,16 @@ export async function getStaticProps() {
   };
 }
 
-function BlogListItem({ slug, title, date, content, type }) {
-  const url = getUrlFromSlug(type, slug);
+function BlogListItem({
+  slug,
+  title,
+  date,
+  metaDate,
+  content,
+  type,
+  metaTitle,
+}) {
+  const url = `/${type}/${metaDate}/${metaTitle}`;
   return (
     <div>
       <div>
